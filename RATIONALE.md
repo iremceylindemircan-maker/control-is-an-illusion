@@ -18,8 +18,7 @@ Gaver (1991) explains affordances as possibilities for action that emerge throug
 
 ## What I Learned
 
-[ADD YOUR REAL USER-TEST OBSERVATION HERE: What did the participant try first? Did they understand why tools became unavailable? What surprised you, and what did you change as a result?]
-
+Testing the project myself helped me understand how interaction and restriction work together. I noticed that the experience becomes more meaningful as available tools gradually disappear. This made me realise that the interface does not only provide ways to interact; it also communicates the limits of control. Through this process, I learned how simple design decisions can express a broader concept.
 ## References
 
 Wardrip-Fruin, N., Mateas, M., Dow, S., & Sali, S. (2009). Agency Reconsidered. Proceedings of DiGRA 2009.
