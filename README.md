@@ -55,3 +55,6 @@ ChatGPT was used to support brainstorming, code generation and writing.
 The generated code was reviewed and organised into separate HTML, CSS and JavaScript files instead of keeping everything in one file. The project was adapted to the assignment concept and requirements.
 
 The author is responsible for reviewing, understanding and presenting the final work.
+## Published Project
+
+[Open Control Is an Illusion](https://iremceylindemircan-maker.github.io/control-is-an-illusion/)
