@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Is an Illusion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">INTERACTIVE EXPERIMENT / 001</div>
+        <div class="status">AN EXPERIMENT ABOUT CONTROL</div>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <p class="eyebrow">AGENCY × POSSIBILITY</p>
+            <h1>CONTROL IS<br><span>AN ILLUSION.</span></h1>
+            <p class="description">
+                You have the power to change this system.
+                But every action comes with a consequence.
+                How much control can you really have?
+            </p>
+        </section>
+
+        <section class="experiment">
+
+            <div class="top-bar">
+                <div>
+                    <p class="small-label">YOUR FREEDOM</p>
+                    <div class="freedom-number"><span id="freedomValue">100</span>%</div>
+                </div>
+
+                <div class="action-counter">
+                    <p class="small-label">ACTIONS</p>
+                    <span id="actionCount">0</span>
+                </div>
+            </div>
+
+            <div class="freedom-track">
+                <div id="freedomBar" class="freedom-fill"></div>
+            </div>
+
+            <div class="workspace">
+                <div class="workspace-label">YOUR SPACE / INTERACTIVE AREA</div>
+                <div id="canvas" class="canvas">
+                    <div class="shape circle"></div>
+                    <div class="shape square"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+
+                <div class="control-group">
+                    <p class="small-label">CREATE</p>
+                    <button id="addButton">+ Add Shape</button>
+                </div>
+
+                <div class="control-group">
+                    <p class="small-label">MOVE</p>
+                    <div class="button-row">
+                        <button id="leftButton">←</button>
+                        <button id="rightButton">→</button>
+                        <button id="upButton">↑</button>
+                        <button id="downButton">↓</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <p class="small-label">RESIZE</p>
+                    <div class="button-row">
+                        <button id="smallerButton">−</button>
+                        <button id="biggerButton">+</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tool-status">
+                <p id="message">You are free to experiment. Start making changes.</p>
+                <p id="lockedTools">LOCKED TOOLS: NONE</p>
+            </div>
+
+            <button id="resetButton" class="reset-button">RESET EXPERIMENT ↻</button>
+
+        </section>
+
+        <section class="reflection">
+            <p class="eyebrow">THINK ABOUT IT</p>
+            <h2>Every choice changes<br>what comes next.</h2>
+            <p>
+                Your actions shape the system, but they also limit your future options.
+                Is this freedom, or just the illusion of freedom?
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <span>CONTROL IS AN ILLUSION</span>
+        <span>AN INTERACTIVE MEDIA PROJECT</span>
+    </footer>
+
+</body>
+</html>
