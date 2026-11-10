@@ -2,7 +2,7 @@
 
 const SETTINGS = {
     actionsPerLock: 2,
-    freedomLossPerAction: 12,
+    freedomLossPerAction: 20, // 5 adımda tam 0'a düşmesi için ayarlandı (100 / 5 = 20)
     startingFreedom: 100,
     moveStep: 28,
     resizeStep: 12,
@@ -74,7 +74,10 @@ function updateUI() {
     freedomBar.style.width = freedom + "%";
     actionCount.textContent = actions;
 
-    addButton.disabled = lockedTools.add;
+    // Eğer freedom 0 olduysa tüm etkileşim butonlarını devre dışı bırak
+    const isGameOver = freedom === 0;
+
+    addButton.disabled = lockedTools.add || isGameOver;
 
     const moveButtons = [
         leftButton,
@@ -84,18 +87,22 @@ function updateUI() {
     ];
 
     moveButtons.forEach(button => {
-        button.disabled = lockedTools.move;
+        button.disabled = lockedTools.move || isGameOver;
     });
 
-    smallerButton.disabled = lockedTools.resize;
-    biggerButton.disabled = lockedTools.resize;
+    smallerButton.disabled = lockedTools.resize || isGameOver;
+    biggerButton.disabled = lockedTools.resize || isGameOver;
 
     const locked = Object.keys(lockedTools)
         .filter(tool => lockedTools[tool]);
 
-    lockedToolsText.textContent = locked.length
-        ? "LOCKED TOOLS: " + locked.join(", ").toUpperCase()
-        : "LOCKED TOOLS: NONE";
+    if (isGameOver) {
+        lockedToolsText.textContent = "EXPERIMENT TERMINATED: ZERO FREEDOM";
+    } else {
+        lockedToolsText.textContent = locked.length
+            ? "LOCKED TOOLS: " + locked.join(", ").toUpperCase()
+            : "LOCKED TOOLS: NONE";
+    }
 }
 
 // RECORD AN ACTION
@@ -108,7 +115,7 @@ function recordAction() {
         freedom - SETTINGS.freedomLossPerAction
     );
 
-    if (actions % SETTINGS.actionsPerLock === 0) {
+    if (actions % SETTINGS.actionsPerLock === 0 && freedom > 0) {
         lockRandomTool();
     }
 
@@ -126,11 +133,7 @@ function lockRandomTool() {
     const availableTools = Object.keys(lockedTools)
         .filter(tool => !lockedTools[tool]);
 
-    if (availableTools.length === 0) {
-        message.textContent =
-            "All tools are locked. Your choices have disappeared.";
-        return;
-    }
+    if (availableTools.length === 0) return;
 
     const randomIndex = Math.floor(
         Math.random() * availableTools.length
@@ -247,7 +250,7 @@ biggerButton.addEventListener("click", () => {
 // KEYBOARD ALTERNATIVES
 
 document.addEventListener("keydown", event => {
-    if (event.target.tagName === "INPUT") return;
+    if (event.target.tagName === "INPUT" || freedom === 0) return;
 
     if (event.key.toLowerCase() === "a") {
         addButton.click();
